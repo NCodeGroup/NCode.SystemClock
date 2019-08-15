@@ -2,7 +2,7 @@
 <Project>
 
   <PropertyGroup>
-    <Description>Provides an abstraction of ISystemClock to assist application testing and implementations with 1s and 1ms accuracy.</Description>
+    <Description>Provides an abstraction of ISystemClock to assist application testing along with implementations that support 1s and 1ms accuracy.</Description>
     <PackageTags>datetime clock date time 1ms millisecond precision accuracy mock utility</PackageTags>
   </PropertyGroup>
 

@@ -2,15 +2,15 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/1eoh6ahm0hukqw8d/branch/master?svg=true)](https://ci.appveyor.com/project/polewskm/ncode-systemclock/branch/master)
 
-Provides an abstraction of ISystemClock to assist application testing and implementations with 1s and 1ms accuracy.
+Provides an abstraction of ISystemClock to assist application testing along with implementations that support 1s and 1ms accuracy.
 
 # Problem Statement
 
 Depending on the underlying Operating System, the accuracy of `DateTime.UtcNow`
 on .NET Framework is around ~16ms due to the usage of the RTC. Some newer .NET
 Frameworks use higher resolution timers such as QPC to obtain the highest level
-of accuracy. This library provides two implementations of `ISystemClock` with 1s
-and 1ms accuracy.
+of accuracy. This library provides implementations of `ISystemClock` with consistent
+1s and 1ms accuracy.
 
 # Contracts
 
