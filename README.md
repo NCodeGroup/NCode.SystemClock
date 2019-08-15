@@ -1,5 +1,7 @@
 # Overview
 
+[![Build status](https://ci.appveyor.com/api/projects/status/1eoh6ahm0hukqw8d/branch/master?svg=true)](https://ci.appveyor.com/project/polewskm/ncode-systemclock/branch/master)
+
 Provides an abstraction of ISystemClock to assist application testing and corresponding implementations with 1s and 1ms accuracy.
 
 # Problem Statement

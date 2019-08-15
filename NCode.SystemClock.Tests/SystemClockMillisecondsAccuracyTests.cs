@@ -52,7 +52,7 @@ namespace NCode.SystemClock.Tests
 
             var diff = nowActual - nowExpected;
             var ms = diff.TotalMilliseconds;
-            Assert.True(ms < 1.0);
+            Assert.True(ms < 2.0);
         }
 
     }
