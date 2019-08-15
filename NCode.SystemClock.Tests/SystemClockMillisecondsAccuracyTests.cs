@@ -19,21 +19,12 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace NCode.SystemClock.Tests
 {
     /// <summary/>
     public class SystemClockMillisecondsAccuracyTests
     {
-        private ITestOutputHelper _output;
-
-        /// <summary/>
-        public SystemClockMillisecondsAccuracyTests(ITestOutputHelper output)
-        {
-            _output = output ?? throw new ArgumentNullException(nameof(output));
-        }
-
         /// <summary/>
         [Fact]
         public void GetUtcNowHasNonZeroMilliseconds()
@@ -63,7 +54,6 @@ namespace NCode.SystemClock.Tests
 
             var diff = nowExpected - nowActual;
             var ms = Math.Abs(diff.TotalMilliseconds);
-            _output.WriteLine("{0}ms", ms);
             Assert.True(ms < 1.0);
         }
 
