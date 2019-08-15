@@ -62,7 +62,7 @@ namespace NCode.SystemClock.Tests
             var nowExpected = DateTimeOffset.UtcNow;
 
             var diff = nowExpected - nowActual;
-            var ms = diff.TotalMilliseconds;
+            var ms = Math.Abs(diff.TotalMilliseconds);
             _output.WriteLine("{0}ms", ms);
             Assert.True(ms < 1.0);
         }
