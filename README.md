@@ -55,6 +55,21 @@ public interface ISystemClockSecondsAccuracy : ISystemClock
 public class SystemClockSecondsAccuracy : ISystemClockSecondsAccuracy { /* ... */ }
 ```
 
+# Usage
+
+> PM> Install-Package NCode.SystemClock
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<ISystemClockSecondsAccuracy, SystemClockSecondsAccuracy>();
+    services.AddTransient<ISystemClockMillisecondsAccuracy, SystemClockMillisecondsAccuracy>();
+
+    // or register ISystemClock with an explicit implementation
+    services.AddTransient<ISystemClock, SystemClockMillisecondsAccuracy>();
+}
+```
+
 # References
 
 * [Acquiring high-resolution time stamps](https://docs.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps)
