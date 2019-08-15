@@ -7,9 +7,8 @@ Provides an abstraction of ISystemClock to assist application testing and corres
 Depending on the underlying Operating System, the accuracy of `DateTime.UtcNow`
 on .NET Framework is around ~16ms due to the usage of the RTC. Some newer .NET
 Frameworks use higher resolution timers such as QPC to obtain the highest level
-of accuracy.
-
-This library provides two implementations of `ISystemClock` with 1s and 1ms accuracy.
+of accuracy. This library provides two implementations of `ISystemClock` with 1s
+and 1ms accuracy.
 
 # Contracts
 
@@ -56,8 +55,8 @@ public class SystemClockSecondsAccuracy : ISystemClockSecondsAccuracy { /* ... *
 
 # References
 
-[Acquiring high-resolution time stamps](https://docs.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps)
-[Accuracy and accuracy of DateTime](https://blogs.msdn.microsoft.com/ericlippert/2010/04/08/precision-and-accuracy-of-datetime/)
+* [Acquiring high-resolution time stamps](https://docs.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps)
+* [Accuracy and accuracy of DateTime](https://blogs.msdn.microsoft.com/ericlippert/2010/04/08/precision-and-accuracy-of-datetime/)
 
 # Release Notes
 
