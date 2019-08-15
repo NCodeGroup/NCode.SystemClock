@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.0;netstandard2.0;net45</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup Condition="!$(TargetFramework.StartsWith('netstandard'))">
+        <None Include="**\*.corefx.cs" />
+        <None Include="**\*.corefx.*.cs" />
+        <Compile Remove="**\*.corefx.cs" />
+        <Compile Remove="**\*.corefx.*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="!$(TargetFramework.StartsWith('net4'))">
+        <None Include="**\*.netfx.cs" />
+        <None Include="**\*.netfx.*.cs" />
+        <Compile Remove="**\*.netfx.cs" />
+        <Compile Remove="**\*.netfx.*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NCode.ProjectSettings.Scaffold" Version="1.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>
