@@ -1,0 +1,35 @@
+version: "{build}"
+shallow_clone: true
+
+branches:
+  only:
+  - master
+
+image: Visual Studio 2019
+configuration: Release
+platform: Any CPU
+
+environment:
+  configuration: $(configuration)
+
+init:
+- cmd: msbuild /version /nologo
+- cmd: dotnet --version
+
+before_build:
+- cmd: dotnet restore
+
+build:
+  parallel: true
+  verbosity: minimal
+
+artifacts:
+- path: '**\NCode.SystemClock.*.nupkg'
+  name: Packages
+
+deploy:
+- provider: NuGet
+  on:
+    APPVEYOR_REPO_TAG: true
+  api_key:
+    secure: pzvKbbudjmurey9no+lmNxd6Ns4zlxtA53dWSTIzjJO2VwKXzWScLTkjUK3s87YO
