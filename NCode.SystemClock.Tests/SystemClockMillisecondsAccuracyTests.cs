@@ -56,15 +56,14 @@ namespace NCode.SystemClock.Tests
         [Fact]
         public void GetUtcNowAccuracyIsMilliseconds()
         {
-            var nowWarmup = SystemClockMillisecondsAccuracy.GetUtcNow();
-            _output.WriteLine("{0}", nowWarmup);
+            SystemClockMillisecondsAccuracy.GetUtcNow();
 
             var nowActual = SystemClockMillisecondsAccuracy.GetUtcNow();
             var nowExpected = DateTimeOffset.UtcNow;
 
             var diff = nowActual - nowExpected;
             var ms = diff.TotalMilliseconds;
-            _output.WriteLine("{0} - {1}ms", diff, ms);
+            _output.WriteLine("{1}ms", diff, ms);
             Assert.True(ms < 2.0);
         }
 
