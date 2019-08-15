@@ -31,12 +31,12 @@ public interface ISystemClock
 /// <summary>
 /// Provides access to the normal system clock with accuracy in milliseconds.
 /// </summary>
-public interface ISystemClockMillisecondsPrecision : ISystemClock
+public interface ISystemClockMillisecondsAccuracy : ISystemClock
 {
     // nothing
 }
 
-public class SystemClockMillisecondsPrecision : ISystemClockMillisecondsPrecision { /* ... */ }
+public class SystemClockMillisecondsAccuracy : ISystemClockMillisecondsAccuracy { /* ... */ }
 
 /// <summary>
 /// Provides access to the normal system clock with accuracy in seconds.
@@ -46,18 +46,18 @@ public class SystemClockMillisecondsPrecision : ISystemClockMillisecondsPrecisio
 /// <code>expires_in</code> only supports whole seconds and milliseconds do
 /// not round-trip when serializing.
 /// </remarks>
-public interface ISystemClockSecondsPrecision : ISystemClock
+public interface ISystemClockSecondsAccuracy : ISystemClock
 {
     // nothing
 }
 
-public class SystemClockSecondsPrecision : ISystemClockSecondsPrecision { /* ... */ }
+public class SystemClockSecondsAccuracy : ISystemClockSecondsAccuracy { /* ... */ }
 ```
 
 # References
 
 [Acquiring high-resolution time stamps](https://docs.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps)
-[Precision and accuracy of DateTime](https://blogs.msdn.microsoft.com/ericlippert/2010/04/08/precision-and-accuracy-of-datetime/)
+[Accuracy and accuracy of DateTime](https://blogs.msdn.microsoft.com/ericlippert/2010/04/08/precision-and-accuracy-of-datetime/)
 
 # Release Notes
 

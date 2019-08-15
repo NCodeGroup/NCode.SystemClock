@@ -45,7 +45,7 @@ namespace NCode.SystemClock.Tests
 
         /// <summary/>
         [Fact]
-        public void GetUtcNowPrecisionIsMilliseconds()
+        public void GetUtcNowAccuracyIsMilliseconds()
         {
             var nowActual = SystemClockMillisecondsAccuracy.GetUtcNow();
             var nowExpected = DateTimeOffset.UtcNow;

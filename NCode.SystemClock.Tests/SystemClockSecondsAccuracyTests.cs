@@ -49,7 +49,7 @@ namespace NCode.SystemClock.Tests
 
         /// <summary/>
         [Fact]
-        public void GetUtcNowPrecisionIsSeconds()
+        public void GetUtcNowAccuracyIsSeconds()
         {
             var systemClock = new SystemClockSecondsAccuracy();
 

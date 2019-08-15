@@ -29,8 +29,8 @@ namespace NCode.SystemClock
         {
             get
             {
-                var utcNowPrecisionSeconds = new DateTime((DateTime.UtcNow.Ticks / TimeSpan.TicksPerSecond) * TimeSpan.TicksPerSecond, DateTimeKind.Utc);
-                return new DateTimeOffset(utcNowPrecisionSeconds);
+                var now = new DateTime((DateTime.UtcNow.Ticks / TimeSpan.TicksPerSecond) * TimeSpan.TicksPerSecond, DateTimeKind.Utc);
+                return new DateTimeOffset(now);
             }
         }
 
