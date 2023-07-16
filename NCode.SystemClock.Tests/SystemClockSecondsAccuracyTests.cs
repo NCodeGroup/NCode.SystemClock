@@ -60,6 +60,6 @@ public class SystemClockSecondsAccuracyTests
 
         var diff = nowExpected - nowActual;
         var seconds = Math.Abs(diff.TotalSeconds);
-        Assert.True(seconds < 1.0);
+        Assert.InRange(seconds, 0, 1.0);
     }
 }

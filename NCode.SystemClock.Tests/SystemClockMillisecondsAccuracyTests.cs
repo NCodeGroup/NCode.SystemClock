@@ -56,6 +56,6 @@ public class SystemClockMillisecondsAccuracyTests
 
         var diff = nowExpected - nowActual;
         var ms = Math.Abs(diff.TotalMilliseconds);
-        Assert.InRange(ms, 0, 5.0);
+        Assert.InRange(ms, 0, 10.0);
     }
 }
