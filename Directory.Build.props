@@ -3,7 +3,6 @@
   <PropertyGroup>
 
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
-    <Version Condition="'$(Version)' == ''">1.0.1</Version>
 
   </PropertyGroup>
 </Project>
