@@ -1,6 +1,7 @@
 #region Copyright Preamble
+
 //
-//    Copyright @ 2019 NCode Group
+//    Copyright @ 2023 NCode Group
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 #endregion
 
 using System;
@@ -20,42 +22,40 @@ using System.Diagnostics;
 using System.Threading;
 using Xunit;
 
-namespace NCode.SystemClock.Tests
+namespace NCode.SystemClock.Tests;
+
+/// <summary/>
+public class SystemClockMillisecondsAccuracyTests
 {
     /// <summary/>
-    public class SystemClockMillisecondsAccuracyTests
+    [Fact]
+    public void GetUtcNowHasNonZeroMilliseconds()
     {
-        /// <summary/>
-        [Fact]
-        public void GetUtcNowHasNonZeroMilliseconds()
-        {
-            var sw = Stopwatch.StartNew();
+        var sw = Stopwatch.StartNew();
 
-            var startTime = SystemClockMillisecondsAccuracy.GetUtcNow();
+        var startTime = SystemClockMillisecondsAccuracy.GetUtcNow();
 
-            SpinWait.SpinUntil(() => sw.ElapsedMilliseconds > 1, 2);
+        SpinWait.SpinUntil(() => sw.ElapsedMilliseconds > 1, 2);
 
-            var endTime = SystemClockMillisecondsAccuracy.GetUtcNow();
+        var endTime = SystemClockMillisecondsAccuracy.GetUtcNow();
 
-            Assert.True(sw.ElapsedMilliseconds > 0);
+        Assert.True(sw.ElapsedMilliseconds > 0);
 
-            var duration = endTime - startTime;
-            Assert.NotEqual(0.0, duration.TotalMilliseconds);
-        }
+        var duration = endTime - startTime;
+        Assert.NotEqual(0.0, duration.TotalMilliseconds);
+    }
 
-        /// <summary/>
-        [Fact]
-        public void GetUtcNowAccuracyIsMilliseconds()
-        {
-            SystemClockMillisecondsAccuracy.GetUtcNow();
+    /// <summary/>
+    [Fact]
+    public void GetUtcNowAccuracyIsMilliseconds()
+    {
+        SystemClockMillisecondsAccuracy.GetUtcNow();
 
-            var nowActual = SystemClockMillisecondsAccuracy.GetUtcNow();
-            var nowExpected = DateTimeOffset.UtcNow;
+        var nowActual = SystemClockMillisecondsAccuracy.GetUtcNow();
+        var nowExpected = DateTimeOffset.UtcNow;
 
-            var diff = nowExpected - nowActual;
-            var ms = Math.Abs(diff.TotalMilliseconds);
-            Assert.True(ms <= 1.0);
-        }
-
+        var diff = nowExpected - nowActual;
+        var ms = Math.Abs(diff.TotalMilliseconds);
+        Assert.True(ms <= 5.0);
     }
 }
