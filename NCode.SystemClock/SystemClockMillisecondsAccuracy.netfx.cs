@@ -68,7 +68,7 @@ public class SystemClockMillisecondsAccuracy : ISystemClockMillisecondsAccuracy
         public readonly long StopwatchTicks = Stopwatch.GetTimestamp();
     }
 
-    private static Snapshot _snapshot = new Snapshot();
+    private static Snapshot _snapshot = new();
 
     // Suppress unused field warning, as it's used to keep the timer alive
     // ReSharper disable once UnusedMember.Local
@@ -76,7 +76,7 @@ public class SystemClockMillisecondsAccuracy : ISystemClockMillisecondsAccuracy
     private static readonly Timer RefreshTimer = InitializeRefreshTimer();
 #pragma warning restore IDE0052 // Remove unread private members
 
-    private static void Refresh()
+    private static void RefreshSnapshot()
     {
         // wait for DateTime.UtcNow update to the next granular value
         Thread.Sleep(1);
@@ -98,7 +98,7 @@ public class SystemClockMillisecondsAccuracy : ISystemClockMillisecondsAccuracy
             }
 
             // refresh the snapshot every 2 hours
-            timer = new Timer(state => { Refresh(); }, null, 0, 7200000);
+            timer = new Timer(_ => { RefreshSnapshot(); }, null, 0, 7200000);
         }
         finally
         {
