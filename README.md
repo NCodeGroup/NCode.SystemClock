@@ -1,6 +1,6 @@
 # Overview
 
-[![Build status](https://ci.appveyor.com/api/projects/status/1eoh6ahm0hukqw8d/branch/master?svg=true)](https://ci.appveyor.com/project/polewskm/ncode-systemclock/branch/master)
+[![ci](https://github.com/NCodeGroup/SystemClock/actions/workflows/main.yml/badge.svg)](https://github.com/NCodeGroup/SystemClock/actions)
 
 Provides an abstraction of ISystemClock to assist application testing along with implementations that support 1s and 1ms accuracy.
 
@@ -78,3 +78,4 @@ public void ConfigureServices(IServiceCollection services)
 # Release Notes
 
 * v1.0.0 - Initial release
+* v1.0.1 - Refresh build
