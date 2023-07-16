@@ -72,7 +72,7 @@ jobs:
         with:
           name: binaries
       - name: Upload release artifacts
-        run: gh release upload ${{ github.event.release.tag_name }} ./*/bin/${Env:BUILD_CONFIGURATION}/*.nupkg ./*/bin/${Env:BUILD_CONFIGURATION}/*.snupkg
+        run: gh release upload ${{ github.event.release.tag_name }} ./*/bin/${BUILD_CONFIGURATION}/*.nupkg ./*/bin/${BUILD_CONFIGURATION}/*.snupkg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup .NET
@@ -80,4 +80,4 @@ jobs:
         with:
           dotnet-version: 6.0.x
       - name: Publish NuGet package
-        run: dotnet nuget push ./*/bin/${Env:BUILD_CONFIGURATION}/*.nupkg --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./*/bin/${BUILD_CONFIGURATION}/*.nupkg --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json
