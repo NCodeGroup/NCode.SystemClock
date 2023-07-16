@@ -2,7 +2,7 @@
 
 [![ci](https://github.com/NCodeGroup/SystemClock/actions/workflows/main.yml/badge.svg)](https://github.com/NCodeGroup/SystemClock/actions)
 
-Provides an abstraction of ISystemClock to assist application testing along with implementations that support 1s and 1ms accuracy.
+Provides an abstraction of `ISystemClock` to assist application testing along with implementations that support 1s and 1ms accuracy.
 
 # Problem Statement
 
